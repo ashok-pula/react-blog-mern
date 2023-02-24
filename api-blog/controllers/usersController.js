@@ -46,6 +46,7 @@ const deleteUser = async (req, res) => {
     res.status(401).json("you can only delete your account");
   }
 };
+
 //get user
 const getUser = async (req, res) => {
   try {

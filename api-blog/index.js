@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const multer = require("multer");
+const path = require("path");
+
 const authRouter = require("./routes/auth.js");
 const usersRouter = require("./routes/users.js");
 const postsRouter = require("./routes/posts");
@@ -11,6 +13,8 @@ const app = express();
 
 dotenv.config();
 app.use(express.json());
+app.use("/images", express.static(path.join(__dirname, "/images")));
+
 mongoose.set("strictQuery", true);
 mongoose.connect(process.env.MONGO_URI, () =>
   console.log("mongoose conncected")

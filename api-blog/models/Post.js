@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema(
     desc: { type: String, required: true },
     photo: { type: String, required: false, default: "" },
     username: { type: String, required: true },
-    category: { type: Array, required: false, default: [] },
+    categories: { type: Array, required: false, default: [] },
   },
   { timestamps: true }
 );

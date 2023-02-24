@@ -35,6 +35,8 @@ const updatePost = async (req, res) => {
   }
 };
 const deletePost = async (req, res) => {
+  // console.log(req.body);
+  // console.log(req.params.id);
   try {
     const post = await Post.findById(req.params.id);
     if (post.username === req.body.username) {
@@ -62,12 +64,14 @@ const getPost = async (req, res) => {
 const getAllPosts = async (req, res) => {
   const username = req.query.user;
   const catname = req.query.cat;
+  // console.log(catname);
   try {
     let posts;
     if (username) {
       posts = await Post.find({ username });
     } else if (catname) {
       posts = await Post.find({ categories: { $in: [catname] } });
+      // console.log(posts);
     } else {
       posts = await Post.find();
     }
